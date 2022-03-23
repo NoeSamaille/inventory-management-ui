@@ -17,6 +17,10 @@ app.use(
   })
 );
 
+app.get('/health', function (req, res) {
+  res.json({ status: 'UP' });
+});
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
