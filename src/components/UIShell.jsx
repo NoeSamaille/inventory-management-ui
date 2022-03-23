@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
     HeaderContainer, Header, SkipToContent, HeaderMenuButton, HeaderName,
     HeaderNavigation, HeaderMenu, HeaderMenuItem, HeaderGlobalBar,
@@ -7,15 +7,16 @@ import {
     StructuredListWrapper, StructuredListHead, StructuredListRow,
     StructuredListCell, StructuredListBody, StructuredListSkeleton
 } from 'carbon-components-react';
-
 import {
     Notification20,
     Search20,
     AppSwitcher20,
     Fade16,
 } from '@carbon/icons-react';
+import ErrorBoundary from './ErrorBoundary';
 
-class UIShell extends Component {
+
+class UIShell extends React.Component {
 
     constructor(props) {
         super(props);
@@ -104,39 +105,41 @@ class UIShell extends Component {
                                         <AppSwitcher20 />
                                     </HeaderGlobalAction>
                                 </HeaderGlobalBar>
-                                <SideNav aria-label="Side navigation" expanded={isSideNavExpanded}>
-                                    <SideNavItems>
-                                        <SideNavLink renderIcon={Fade16} href="#">
-                                            Overview
-                                        </SideNavLink>
-                                        <SideNavMenu renderIcon={Fade16} title="Inventory" defaultExpanded>
-                                            <SideNavMenuItem aria-current="page" href="#">
-                                                Items
-                                            </SideNavMenuItem>
-                                        </SideNavMenu>
-                                        <SideNavMenu renderIcon={Fade16} title="Management">
-                                            <SideNavMenuItem href="#">
-                                                Link
-                                            </SideNavMenuItem>
-                                            <SideNavMenuItem href="#">
-                                                Link
-                                            </SideNavMenuItem>
-                                            <SideNavMenuItem href="#">
-                                                Link
-                                            </SideNavMenuItem>
-                                        </SideNavMenu>
-                                        <SideNavMenu
-                                            renderIcon={Fade16}
-                                            title="Docs">
-                                            <SideNavMenuItem href="#">
-                                                Link
-                                            </SideNavMenuItem>
-                                            <SideNavMenuItem href="#">
-                                                Link
-                                            </SideNavMenuItem>
-                                        </SideNavMenu>
-                                    </SideNavItems>
-                                </SideNav>
+                                <ErrorBoundary>
+                                    <SideNav aria-label="Side navigation" expanded={isSideNavExpanded}>
+                                        <SideNavItems>
+                                            <SideNavLink renderIcon={Fade16} href="#">
+                                                Overview
+                                            </SideNavLink>
+                                            <SideNavMenu renderIcon={Fade16} title="Inventory" defaultExpanded>
+                                                <SideNavMenuItem aria-current="page" href="#">
+                                                    Items
+                                                </SideNavMenuItem>
+                                            </SideNavMenu>
+                                            <SideNavMenu renderIcon={Fade16} title="Management">
+                                                <SideNavMenuItem href="#">
+                                                    Link
+                                                </SideNavMenuItem>
+                                                <SideNavMenuItem href="#">
+                                                    Link
+                                                </SideNavMenuItem>
+                                                <SideNavMenuItem href="#">
+                                                    Link
+                                                </SideNavMenuItem>
+                                            </SideNavMenu>
+                                            <SideNavMenu
+                                                renderIcon={Fade16}
+                                                title="Docs">
+                                                <SideNavMenuItem href="#">
+                                                    Link
+                                                </SideNavMenuItem>
+                                                <SideNavMenuItem href="#">
+                                                    Link
+                                                </SideNavMenuItem>
+                                            </SideNavMenu>
+                                        </SideNavItems>
+                                    </SideNav>
+                                </ErrorBoundary>
                             </Header>
                         </>
                     )}

@@ -1,6 +1,6 @@
 # Inventory Management UI
 
-Simple React UI based on Carbon Design system.
+Simple React UI based on [Carbon](https://www.carbondesignsystem.com/) design system.
 
 ## Available Scripts
 
