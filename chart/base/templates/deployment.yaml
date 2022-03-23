@@ -55,14 +55,17 @@ spec:
               path: /
               port: http
           env:
+            - name: API_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: inventory-config
+                  key: api-host
             - name: INGRESS_HOST
               value: ""
             - name: PROTOCOLS
               value: ""
             - name: LOG_LEVEL
               value: {{ .Values.logLevel | quote }}
-            - name: API_HOST
-              value: {{ printf "http://%s" .Values.connectsTo | quote }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
